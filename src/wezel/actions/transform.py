@@ -185,7 +185,7 @@ class CoregisterTo(wezel.Action):
 
     def run(self, app):
         for series in app.selected('Series'):
-            seriesList = series.parent().children()
+            seriesList = series.parent().parent().series()
             seriesLabels = [s.instance().SeriesDescription for s in seriesList]
             input = wezel.widgets.UserInput(
                 {"label":"Coregister to which fixed series?", "type":"dropdownlist", "list": seriesLabels, 'value':0},
